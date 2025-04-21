@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Boutique Bliss</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      overflow-x: hidden;
+      transition: background-color 0.5s ease;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(135deg, #f36d6d, #f49393);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      animation: slideIn 1s ease-out forwards;
+    }
+
+    .navbar {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .navbar a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar a:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    .navbar a:hover {
+      color: #f49393;
+    }
+
+    .cart-icon {
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: #f36d6d;
+      color: white;
+      border-radius: 50%;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.9rem;
+    }
+
+    .main-content {
+      padding-top: 6rem;
+      padding-bottom: 4rem;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 0 2rem;
+      justify-items: center;
+    }
+
+    .product-card {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 320px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .product-card h3 {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .product-card p {
+      font-size: 1.1rem;
+      color: #777;
+      margin: 0.5rem 0;
+    }
+
+    .product-card button {
+      background-color: #f36d6d;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .product-card button:hover {
+      background-color: #f49393;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      background-color: #333;
+      color: white;
+      font-size: 1rem;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: #f36d6d;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background-color: #222;
+      color: white;
+    }
+
+    header.dark-mode {
+      background: linear-gradient(135deg, #111, #444);
+    }
+
+    .navbar a.dark-mode {
+      color: white;
+    }
+
+    /* Mobile Navbar */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+      .logo {
+        font-size: 2rem;
+      }
+
+      .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+      }
+
+      .product-list {
+        padding: 0;
+      }
+
+      .product-card {
+        max-width: 100%;
+      }
+    }
+
+    /* Entrance Animation for Logo */
+    @keyframes slideIn {
+      0% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">BoutiqueBliss</div>
+    <nav class="navbar">
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+      <a href="#checkout">Checkout</a>
+    </nav>
+    <div class="cart-icon" onclick="toggleSidebar()">🛒 <span class="cart-count" id="cart-count">0</span></div>
+  </header>
+
+  <div class="main-content">
+    <section id="home">
+      <div class="section-title">Clothing</div>
+      <div class="product-list" id="clothing-list">
+        <!-- Clothing products will be dynamically inserted here -->
+      </div>
+    </section>
+
+    <section id="bags">
+      <div class="section-title">Bags</div>
+      <div class="product-list" id="bags-list">
+        <!-- Bag products will be dynamically inserted here -->
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 BoutiqueBliss. All rights reserved.</p>
+    <p><a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms & Conditions</a></p>
+  </footer>
+
+  <script>
+    let cart = [];
+
+    // Generate 50 clothing products and 50 bag products
+    const products = [
+      ...Array(50).fill().map((_, index) => ({
+        name: `Clothing Product ${index + 1}`,
+        price: (Math.random() * 50 + 20).toFixed(2),
+        type: 'Clothing'
+      })),
+      ...Array(50).fill().map((_, index) => ({
+        name: `Bag Product ${index + 1}`,
+        price: (Math.random() * 50 + 30).toFixed(2),
+        type: 'Bag'
+      }))
+    ];
+
+    // Function to render product cards
+    function renderProducts() {
+      const clothingList = document.getElementById('clothing-list');
+      const bagsList = document.getElementById('bags-list');
+      clothingList.innerHTML = '';
+      bagsList.innerHTML = '';
+
+      products.forEach((product, index) => {
+        const card = document.createElement('div');
+        card.classList.add('product-card');
+        card.innerHTML = `
+          <img src="https://via.placeholder.com/300" alt="${product.name}">
+          <h3>${product.name}</h3>
+          <p>$${product.price}</p>
+          <button onclick="addToCart(${index})">Add to Cart</button>
+        `;
+
+        if (product.type === 'Clothing') {
+          clothingList.appendChild(card);
+        } else {
+          bagsList.appendChild(card);
+        }
+      });
+    }
+
+    // Function to add product to the cart
+    function addToCart(index) {
+      const product = products[index];
+      cart.push(product);
+      updateCart();
+    }
+
+    // Function to update the cart count and cart items in the sidebar
+    function updateCart() {
+      const cartCount = document.getElementById('cart-count');
+      cartCount.innerText = cart.length;
+    }
+
+    // Function to toggle the sidebar visibility
+    function toggleSidebar() {
+      alert("Cart sidebar functionality coming soon!");
+    }
+
+    // Render products on page load
+    renderProducts();
+  </script>
+
+</body>
+</html>

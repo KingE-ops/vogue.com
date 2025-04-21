@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vogue Vault</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0a0a0a;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #e91e63;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(to bottom, #000000, #1c1c1c);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #e91e63;
+      animation: fadeInDown 1s ease-out forwards;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #ccc;
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      text-align: center;
+      margin-top: 4rem;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .product-preview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .product-card {
+      background: #1a1a1a;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .product-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #000;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 1rem;
+      }
+      nav.active { display: flex; }
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      height: 100%;
+      width: 70%;
+      background-color: #111;
+      z-index: 1000;
+      padding: 2rem;
+      transition: left 0.4s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .sidebar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    .sidebar .close-btn {
+      align-self: flex-end;
+      font-size: 2rem;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    .menu-toggle{
+        display: none;
+    }
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem 3rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #e91e63;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: #aaa;
+      animation: fadeIn 2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+    
+  <header>
+    <div class="logo">Vogue Vault</div>
+    <div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="./contact.html">Contact</a>
+      <a href="shop.html">Shop Now</a>
+    </nav>
+  </header>
+
+  <div class="sidebar" id="mobileSidebar">
+    <div class="close-btn" onclick="toggleSidebar()">×</div>
+    <a href="index.html" onclick="toggleSidebar()">Home</a>
+    <a href="about.html" onclick="toggleSidebar()">About</a>
+    <a href="contact.html" onclick="toggleSidebar()">Contact</a>
+    <a href="shop.html" onclick="toggleSidebar()">Shop Now</a>
+  </div>
+
+
+  <section class="hero">
+    <h1 data-aos="zoom-in">Vogue Vault</h1>
+    <p data-aos="fade-up">Where Fashion Meets Elegance.</p>
+  </section>
+
+  <h2 class="section-title" data-aos="fade-up">Featured Clothing</h2>
+  <div class="product-preview">
+    <div class="product-card" data-aos="fade-up">
+      <img src="https://via.placeholder.com/300x250?text=Clothing+1" alt="Clothing 1">
+      <h3>Elegant Dress</h3>
+    </div>
+    <div class="product-card" data-aos="fade-up">
+      <img src="https://via.placeholder.com/300x250?text=Clothing+2" alt="Clothing 2">
+      <h3>Chic Blazer</h3>
+    </div>
+    <div class="product-card" data-aos="fade-up">
+      <img src="https://via.placeholder.com/300x250?text=Clothing+3" alt="Clothing 3">
+      <h3>Casual Top</h3>
+    </div>
+  </div>
+
+  <h2 class="section-title" data-aos="fade-up">Featured Bags</h2>
+  <div class="product-preview">
+    <div class="product-card" data-aos="fade-up">
+      <img src="https://via.placeholder.com/300x250?text=Bag+1" alt="Bag 1">
+      <h3>Leather Tote</h3>
+    </div>
+    <div class="product-card" data-aos="fade-up">
+      <img src="https://via.placeholder.com/300x250?text=Bag+2" alt="Bag 2">
+      <h3>Mini Clutch</h3>
+    </div>
+    <div class="product-card" data-aos="fade-up">
+      <img src="https://via.placeholder.com/300x250?text=Bag+3" alt="Bag 3">
+      <h3>Stylish Backpack</h3>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Vogue Vault. All rights reserved.
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function toggleSidebar() {
+      document.getElementById('mobileSidebar').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

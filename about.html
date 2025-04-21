@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Vogue Vault</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    header {
+      background: #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #e91e63;
+    }
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #e91e63;
+      transition: width 0.3s;
+    }
+    nav a:hover::after { width: 100%; }
+
+    /* Mobile nav toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .menu-toggle span {
+      background: #fff;
+      height: 3px;
+      width: 25px;
+      margin: 4px 0;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+      animation: fadeIn 1.5s ease-out;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #e91e63;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #ccc;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      color: #ddd;
+    }
+
+    .section h2 {
+      color: #e91e63;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .vision {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .vision-box {
+      background: #1a1a1a;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(233,30,99,0.1);
+      transition: transform 0.3s;
+    }
+    .vision-box:hover {
+      transform: translateY(-8px);
+    }
+
+    .vision-box i {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #e91e63;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .member {
+      background: #1a1a1a;
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .member img {
+      width: 100px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      border: 2px solid #e91e63;
+    }
+    .member h4 {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      color: #e91e63;
+    }
+
+    .parallax {
+      background-image: url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f');
+      height: 250px;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      margin: 3rem 0;
+    }
+
+    footer {
+      background: #111;
+      padding: 1rem;
+      text-align: center;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        right: -20px;
+        top: 60px;
+        width: 100%;
+      }
+
+      nav.active { display: flex; }
+
+      .menu-toggle { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Vogue Vault</div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <nav id="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="shop.html">Shop Now</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>About Vogue Vault</h1>
+    <p>"Empowering confidence through elegance — one outfit, one bag, one bold move at a time."</p>
+  </section>
+
+  <section class="section fade-in">
+    <h2>Our Story</h2>
+    <p>
+      Founded with a passion for fashion and luxury, Vogue Vault is the destination for high-end clothing and statement bags. Each piece is curated to radiate confidence and style.
+    </p>
+    <p>
+      Our boutique is built on a belief: fashion is personal power. We deliver timeless pieces that inspire bold living and refined self-expression.
+    </p>
+  </section>
+
+  <section class="parallax"></section>
+
+  <section class="section fade-in">
+    <h2>Our Vision</h2>
+    <div class="vision">
+      <div class="vision-box">
+        <i>👜</i>
+        <h4>Timeless Accessories</h4>
+        <p>Delivering statement bags for every occasion, crafted with elegance and edge.</p>
+      </div>
+      <div class="vision-box">
+        <i>👗</i>
+        <h4>Empowering Fashion</h4>
+        <p>Designs that make you feel fierce, confident, and unforgettable.</p>
+      </div>
+      <div class="vision-box">
+        <i>🌍</i>
+        <h4>Global Influence</h4>
+        <p>Inspired by worldwide fashion hubs, curated for bold, unique wardrobes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade-in">
+    <h2>Meet the Team</h2>
+    <div class="team-grid">
+      <div class="member">
+        <img src="https://i.pravatar.cc/100?img=12" alt="Team Member">
+        <h4>Naomi Silva</h4>
+        <p>Founder & Creative Director</p>
+      </div>
+      <div class="member">
+        <img src="https://i.pravatar.cc/100?img=22" alt="Team Member">
+        <h4>Jalen Moore</h4>
+        <p>Head of Fashion</p>
+      </div>
+      <div class="member">
+        <img src="https://i.pravatar.cc/100?img=18" alt="Team Member">
+        <h4>Sophia Reyes</h4>
+        <p>Visual Designer</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Vogue Vault. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav').classList.toggle('active');
+    }
+
+    // Scroll animation
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0.2
+    };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+
+</body>
+</html>
