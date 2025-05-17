@@ -10,6 +10,8 @@
 </head>
 <body>
 
+  <div id="preloader"></div>
+
     
   <header>
     <div class="logo">Vogue Vault</div>
@@ -30,6 +32,7 @@
     <a href="shop.html" onclick="toggleSidebar()">Shop Now</a>
   </div>
 
+  
 
   <section class="hero">
     <h1 data-aos="zoom-in">Vogue Vault</h1>
@@ -39,15 +42,15 @@
   <h2 class="section-title" data-aos="fade-up">Featured Clothing</h2>
   <div class="product-preview">
     <div class="product-card" data-aos="fade-up">
-      <img src="https://via.placeholder.com/300x250?text=Clothing+1" alt="Clothing 1">
+      <img src="./image/Discover the best charming lady outfit with an….jpg" alt="Clothing 1">
       <h3>Elegant Dress</h3>
     </div>
     <div class="product-card" data-aos="fade-up">
-      <img src="https://via.placeholder.com/300x250?text=Clothing+2" alt="Clothing 2">
+      <img src="./image/Carrie Cargo Pant Set - Taupe _ Fashion Nova.jpg" alt="Clothing 2">
       <h3>Chic Blazer</h3>
     </div>
     <div class="product-card" data-aos="fade-up">
-      <img src="https://via.placeholder.com/300x250?text=Clothing+3" alt="Clothing 3">
+      <img src="./image/857d730f-7686-4263-9bd8-9d87875f992a.jpg" alt="Clothing 3">
       <h3>Casual Top</h3>
     </div>
   </div>
@@ -55,18 +58,22 @@
   <h2 class="section-title" data-aos="fade-up">Featured Bags</h2>
   <div class="product-preview">
     <div class="product-card" data-aos="fade-up">
-      <img src="https://via.placeholder.com/300x250?text=Bag+1" alt="Bag 1">
+      <img src="./image/Disarh Fashion Lu-Vi bags - 17653  A+ Excellent….jpg" alt="Bag 1">
       <h3>Leather Tote</h3>
     </div>
     <div class="product-card" data-aos="fade-up">
-      <img src="https://via.placeholder.com/300x250?text=Bag+2" alt="Bag 2">
+      <img src="./image/Discover Elegance and Versatility Introducing the….jpg" alt="Bag 2">
       <h3>Mini Clutch</h3>
     </div>
     <div class="product-card" data-aos="fade-up">
-      <img src="https://via.placeholder.com/300x250?text=Bag+3" alt="Bag 3">
+      <img src="./image/104efd02-dfe8-4110-ab68-b961f4907409.jpg" alt="Bag 3">
       <h3>Stylish Backpack</h3>
     </div>
   </div>
+
+<div class="footer">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/yJg-Y5byMMw?si=unZADf5iTb4WaRZ7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
   <footer>
     &copy; 2025 Vogue Vault. All rights reserved.
@@ -79,5 +86,14 @@
       document.getElementById('mobileSidebar').classList.toggle('active');
     }
   </script>
+
+
+<script>
+  var loader = document.getElementById("preloader");
+
+  window.addEventListener("load", function(){
+    loader.style.display = "none"
+  })
+</script>
 </body>
 </html>

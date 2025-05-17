@@ -192,9 +192,23 @@
 
       .menu-toggle { display: flex; }
     }
+
+     #preloader{
+      background: #000 url(image/Circle\ Loader.gif) no-repeat center center;
+      background-size: 15%;
+      height: 100vh;
+      width: 100%;
+      position: fixed;
+      z-index: 10000;
+    }
+    .footer{
+      display: none;
+    }
   </style>
 </head>
 <body>
+
+  <div id="preloader"></div>
 
   <header>
     <div class="logo">Vogue Vault</div>
@@ -246,6 +260,11 @@
       </div>
     </div>
   </section>
+  <div class="footer">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/yJg-Y5byMMw?si=unZADf5iTb4WaRZ7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/yJg-Y5byMMw?si=unZADf5iTb4WaRZ7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/yJg-Y5byMMw?si=unZADf5iTb4WaRZ7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
   <section class="section fade-in">
     <h2>Meet the Team</h2>
@@ -296,5 +315,13 @@
     });
   </script>
 
+<script>
+  var loader = document.getElementById("preloader");
+
+  window.addEventListener("load", function(){
+    loader.style.display = "none"
+  })
+</script>
+</body>
 </body>
 </html>

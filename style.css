@@ -10,7 +10,11 @@
       background-color: #0a0a0a;
       color: white;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
+    body::-webkit-scrollbar{
+    width: 0    
+}
 
     header {
       position: fixed;
@@ -102,7 +106,7 @@
       padding: 1rem;
       border-radius: 12px;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s;
+      transition: transform 0.4s;
     }
 
     .product-card:hover {
@@ -196,24 +200,31 @@
 
     .hero h1 {
       font-size: 3rem;
-      color: #e91e63;
-      animation: fadeIn 1.5s ease-out;
+      color: #f50957;
+      animation: fadeInUp 9s ease;
     }
 
     .hero p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-top: 1rem;
-      color: #aaa;
-      animation: fadeIn 2s ease-out;
+      color: #eee8e8;
+      animation: fadeInUp 9s ease;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      
+        @keyframes fadeInUp   {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+  
+    #preloader{
+      background: black url(./image/Circle\ Loader.gif) no-repeat center center;
+      background-size: 15%;
+      height: 100vh;
+      width: 100%;
+      position: fixed;
+      z-index: 10000;
+    }
+    .footer{
+      display: none;
     }
