@@ -1,2 +1,1 @@
-# vogue.com
-# vogue.com
+# divine-mercy.com
