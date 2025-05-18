@@ -220,10 +220,9 @@
     #preloader{
       background: rgba(243, 241, 241, 0.375) url(./image/--unscreen.gif) no-repeat center center;
       backdrop-filter: blur(7px);
-      background-size: 30%;
+      background-size: 32%;
       height: 100vh;
       width: 100%;
-      bottom: 30px;
       position: fixed;
       z-index: 1100;
     }
